@@ -1,47 +1,47 @@
-# GitHub Entropy Stats (Chaotic Container)
+# 🌪️ GitHub Entropy Stats
 
-Phase 1 skeleton for the serverless API that powers the "Chaotic Container" GitHub stats card.
+> **"Stop using boring grid tables. Embrace the chaos."**
 
-## Setup
+A self-hostable, serverless API that generates a **Chaotic "Messy Desk" Dashboard** for your GitHub profile. Unlike standard stat cards, this visualizes your "Seniority" and "Impact" using a dynamic, sticker-bombed aesthetic.
 
-1. Create a `.env` file (or set an environment variable) with your GitHub token:
+![Entropy Stats Preview](https://via.placeholder.com/800x400.png?text=Preview+of+Chaotic+Stats+Card)
+*(Replace this link with a screenshot of your actual generated SVG once deployed)*
 
-   ```bash
-   GH_TOKEN=ghp_your_token_here
-   ```
+## ✨ Features
 
-2. Install Vercel globally if you plan to run locally:
+* **The "Seniority" Score:** A unique algorithm that weights Code Reviews and Discussion Answers higher than simple Commits.
+* **Chaotic Design:** Rotated elements, sticky notes, and stamps—no two elements align perfectly.
+* **High Performance:** Serverless (Vercel) + SVG generation (no Puppeteer/Headless browser needed).
+* **Privacy First:** You host it. You use your own Token. No third-party tracking.
 
-   ```bash
-   npm install -g vercel
-   ```
+---
 
-3. Start the development server:
+## 🚀 Quick Start (Deploy Your Own)
 
-   ```bash
-   vercel dev
-   ```
+You can deploy your own instance for free on Vercel. This ensures you use your own API rate limits.
 
-   Then call the endpoint: `http://localhost:3000/api?username=octocat`
+### 1. Click the Deploy Button
+This will clone this repository to your GitHub account and setup a project on Vercel.
 
-## API
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/YOUR_USERNAME/YOUR_REPO_NAME&env=GH_TOKEN)
 
-- **Route:** `/api?username=<github_login>`
-- **Method:** `GET`
-- **Response:** JSON with two blocks:
-  - `metrics`: normalized fields for commits, reviews, discussion comments, closed issues, and a summed star count.
-  - `raw`: the original GraphQL response (useful for debugging or iterating on the SVG layout).
+*(Note: Replace `YOUR_USERNAME/YOUR_REPO_NAME` in the link above with your actual repo details after you push this code)*
 
-## GraphQL query
+### 2. Configure Environment Variables
+During the deployment process, Vercel will ask for a `GH_TOKEN`.
 
-The API issues a single GitHub GraphQL request to gather the metrics required for the later SVG layout:
+#### How to get a GitHub Token:
+1.  Go to **GitHub Settings** > **Developer settings** > **Personal access tokens** > **Tokens (classic)**.
+2.  Click **Generate new token (classic)**.
+3.  Name it "Entropy Stats".
+4.  **Select Scopes:**
+    * ✅ `read:user` (Required for profile stats)
+    * ✅ `repo` (Required if you want to count private contributions, otherwise optional)
+5.  Click **Generate token** and copy the string (starts with `ghp_...`).
+6.  Paste this into the Vercel **GH_TOKEN** field.
 
-- `totalCommitContributions`
-- `totalPullRequestReviewContributions`
-- `totalRepositoryDiscussionComments`
-- `issues(states: CLOSED) { totalCount }`
-- Public, non-fork repositories (up to 100) with `stargazerCount`, plus a `hasNextPage` flag to signal truncation.
+### 3. Add to your Profile
+Once deployed, Vercel will give you a domain (e.g., `https://my-chaos-stats.vercel.app`). Add this to your personal `README.md`:
 
-## Deployment
-
-The provided `vercel.json` pins the runtime to Node 18 and routes `/api/*` to the serverless function. Add the `GH_TOKEN` environment variable in your Vercel project settings before deploying.
+```markdown
+![My Chaos Stats](https://your-vercel-domain.vercel.app/api?username=YOUR_GITHUB_USERNAME)
