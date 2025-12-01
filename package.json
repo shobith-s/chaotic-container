@@ -6,6 +6,9 @@
   "license": "MIT",
   "type": "module",
   "engines": {
-    "node": "^18"
+    "node": "22.x"
+  },
+  "dependencies": {
+    "undici": "^6.0.0"
   }
 }
