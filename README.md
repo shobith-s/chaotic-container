@@ -23,7 +23,7 @@ You can deploy your own instance for free on Vercel. This ensures you use your o
 ### 1. Click the Deploy Button
 This will clone this repository to your GitHub account and setup a project on Vercel.
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/YOUR_USERNAME/YOUR_REPO_NAME&env=GH_TOKEN)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/shobith-s/chaotic-container&env=GH_TOKEN)
 
 *(Note: Replace `YOUR_USERNAME/YOUR_REPO_NAME` in the link above with your actual repo details after you push this code)*
 
