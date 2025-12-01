@@ -1,0 +1,11 @@
+{
+  "name": "chaotic-container",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Self-hostable GitHub Entropy Stats API",
+  "license": "MIT",
+  "type": "module",
+  "engines": {
+    "node": "^18"
+  }
+}
